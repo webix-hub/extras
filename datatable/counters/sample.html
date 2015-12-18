@@ -1,0 +1,53 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title> Webix Datatable: Footer Math </title>
+    <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+    <script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>  
+    <script src="counters.js" type="text/javascript"></script>  
+</head>
+<body>
+	<div id="testA" style="margin:20px;"></div>
+	<script type="text/javascript" charset="utf-8">
+		
+		var products_data = [
+			{"id":1,"code":"NWTB-1","name":"Webix Chai","price":"13.50","count":"50","rating":"10.0"},
+			{"id":2,"code":"NWTCO-3","name":"Webix Syrup","price":"7.50","count":"120","rating":"6.0"},
+			{"id":3,"code":"NWTCO-4","name":"Webix Cajun Seasoning","price":"16.50","count":"5","rating":"7"},
+			{"id":4,"code":"NWTO-5","name":"Webix Olive Oil","price":"16.00","count":"90","rating":"9.5"},
+			{"id":5,"code":"NWTJP-6","name":"Webix Boysenberry Spread","price":"18.75","count":"48","rating":"7.3"},
+			{"id":6,"code":"NWTDFN-7","name":"Webix Dried Pears","price":"22.50","count":"39","rating":"6.6"},
+			{"id":7,"code":"NWTS-8","name":"Webix Curry Sauce","price":"30.00","count":"124","rating":"8.1"},
+			{"id":8,"code":"NWTDFN-14","name":"Webix Walnuts","price":"17.40","count":"98","rating":"9.9"},
+			{"id":9,"code":"NWTCFV-17","name":"Webix Fruit Cocktail","price":"29.20","count":"11","rating":"9.2"},
+			{"id":10,"code":"NWTBGM-19","name":"Webix Chocolate Biscuits Mix","price":"6.90","count":"203","rating":"10.0"},
+			{"id":11,"code":"NWTJP-7","name":"Webix Marmalade","price":"60.70","count":"115","rating":"9.4"},
+			{"id":12,"code":"NWTBGM-21","name":"Webix Scones","price":"7.50","count":"46","rating":"6.9"},
+			{"id":13,"code":"NWTB-34","name":"Webix Beer","price":"10.50","count":"113","rating":"9.0"},
+			{"id":14,"code":"NWTCM-40","name":"Webix Crab Meat","price":"13.80","count":"84","rating":"8.8"},
+			{"id":15,"code":"NWTSO-41","name":"Webix Clam Chowder","price":"7.20","count":"66","rating":"6.8"},
+			{"id":16,"code":"NWTB-43","name":"Webix Coffee","price":"34.50","count":"150","rating":"9.7"},
+			{"id":17,"code":"NWTCA-48","name":"Webix Chocolate","price":"9.50","count":"154","rating":"10.0"}
+		];
+
+		webix.ui({
+			container:"testA",
+			view:"datatable",
+			columns:[
+				{ id:"id",  header:"",    width:50, sort:"int", footer:{text:"Avg, Max, SumProdColumn:", colspan:3}},
+				{ id:"name", header:"Name", width:250, sort:"string"},
+				{ id:"code",  header:"Code", sort:"string"},
+				{ id:"rating", header:"Rating", sort:"int", footer:{ content:"avgColumn" }},
+				{ id:"price", header:"Price", sort:"int", footer:{ content:"maxColumn" }},
+				{ id:"count",  header:"Quantity", sort:"int", footer:{ content:"sumProdColumn", columns:["price", "count"]}},
+			],
+			columnWidth:120,
+			autoheight:true,
+			autowidth:true,
+			data:products_data,
+			footer:true
+		});
+
+  </script>
+</body>
+</html>
