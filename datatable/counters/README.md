@@ -9,13 +9,14 @@ Are included into the column footer:
 webix.ui({
 	view:"datatable", 
 	columns:[
-		{ id:"id",  header:"",    width:50, sort:"int", footer:{text:"Max, min, stdevp:", colspan:2}},
-		{ id:"title", header:"Film title", width:200 },
-		{ id:"year",  header:"Released" , width:80, sort:"int", footer:{ content:"maxColumn" }},
-		{ id:"votes", header:"Votes",   width:100,  sort:"int", footer:{ content:"minColumn" }},
-		{ id:"rank",  header:"Rank",    width:100, sort:"int", footer:{ content:"stDevPColumn"}}
+		{ id:"id",  header:"",    width:50, sort:"int", footer:{text:"Avg, Max, SumProdColumn:", colspan:3}},
+		{ id:"name", header:"Name", width:250, sort:"string"},
+		{ id:"code",  header:"Code", sort:"string"},
+		{ id:"rating", header:"Rating", sort:"int", footer:{ content:"avgColumn" }},
+		{ id:"price", header:"Price", sort:"int", footer:{ content:"maxColumn" }},
+		{ id:"count",  header:"Quantity", sort:"int", footer:{ content:"sumProdColumn", columns:["price", "count"]}},
 	],
-	data:small_film_data
+	data:products_data
 });
 ~~~
 
