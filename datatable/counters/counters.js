@@ -105,11 +105,11 @@ webix.ui.datafilter.minColumn = webix.extend({
 
 webix.ui.datafilter.prodColumn = webix.extend({
 	getResult:function(master, config){
-		var result = 0;
+		var result = "";
 		master.mapCells(null, config.columnId, null, 1, function(value){
 			value = value*1;
 			if((value || value === 0) && !isNaN(value))
-				result = result?result*value:value;
+				result = result===""?value:result*value;
 		}, true);
 		return result;
 	}
